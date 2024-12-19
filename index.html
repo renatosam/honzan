@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            color: #333;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            width: 150px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .message {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .countdown {
+            font-size: 32px;
+            color: #d9534f;
+            font-weight: bold;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://drive.google.com/file/d/1apOq9Xzh_cOrzUCh8zSTFHNLQZqlrnW5/view?usp=drive_link" alt="Logo" class="logo">
+        <div class="message">We are redirecting you in <span class="countdown" id="countdown">5</span> seconds...</div>
+    </div>
+
+    <script>
+        let seconds = 5;  // Countdown time
+        const redirectUrl = "https://www.instagram.com/honzan.ca/"; // Update to your target URL
+
+        function countdown() {
+            const counter = document.getElementById("countdown");
+            if (seconds <= 0) {
+                window.location.href = redirectUrl;
+            } else {
+                counter.textContent = seconds;
+                seconds--;
+                setTimeout(countdown, 1000);
+            }
+        }
+
+        window.onload = countdown;
+    </script>
+</body>
+</html>
